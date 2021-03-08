@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>Nombre</td>
+			<td>Sexo</td>
+			<td>Edad</td>
+			<td>Fecha de Rescate</td>
+			<td>Adoptante</td>
+		</tr>
+		
+	</thead>
+	<tbody>
+		<!---Con esto se comprueba si existen registros --->
+		{% if mascotas %}
+		{% for mascota in mascotas%}
+		<tr>
+			<td>{{mascota.id}}</td>
+			<td>{{mascota.nombre}}</td>
+			<td>{{mascota.sexo}}</td>
+			<td>{{mascota.edad_aproximada}}</td>
+			<td>{{mascota.fecha_rescate}}</td>
+			<td>{{mascota.persona.nombre}} {{mascota.persona.apellido}}</td>
+		</tr>
+		{% endfor %}
+
+		{% else %}
+		<h1>No hay registro de mascotas</h1>
+
+		{% endif %}
+	</tbody>
+</table> 
+
+{% endblock%}
