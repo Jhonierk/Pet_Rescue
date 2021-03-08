@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from apps.mascota.forms import MascotaForm
 # Create your views here.
 
-def index_mascota(request):
+def index(request):
 	return render(request, "mascota/index.html")
 
 def mascota_form(request):
@@ -12,7 +12,7 @@ def mascota_form(request):
 		form = MascotaForm(request.POST)
 		if form.is_valid():
 			form.save()
-		return redirect('mascota:index')
+		return redirect('index')
 	else:
 		form = MascotaForm()
 

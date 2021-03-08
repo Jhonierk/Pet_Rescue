@@ -6,6 +6,9 @@ from apps.adopcion.models import Persona
 class Vacuna(models.Model):
 	nombre = models.CharField(max_length=50)
 
+	def __str__(self):
+		return '{}'.format(self.nombre)
+
 class Mascota(models.Model):
 	#normalmente en djago tiene un id autoincrementable pero la podemos cambiar asi:
 	#folio = models.CharField(max_length=10, primary_key=True)
